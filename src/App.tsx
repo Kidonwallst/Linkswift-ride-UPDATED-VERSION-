@@ -19,6 +19,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { cn } from './lib/utils';
+import { OptimizedImage } from './components/OptimizedImage';
 
 // --- Types ---
 interface Service {
@@ -153,6 +154,15 @@ const OUR_WORK: WorkItem[] = [
   },
 ];
 
+// Social media and legal links
+const SOCIAL_LINKS = {
+  instagram: 'https://instagram.com/linkswiftride',
+  twitter: 'https://twitter.com/linkswiftride',
+  facebook: 'https://facebook.com/linkswiftride',
+  whatsapp1: 'https://wa.me/2347019851051',
+  whatsapp2: 'https://wa.me/2347076725564',
+};
+
 // --- Components ---
 
 const Navbar = () => {
@@ -205,9 +215,10 @@ const Navbar = () => {
             </a>
           ))}
           <a 
-            href="https://wa.me/2347019851051"
+            href={SOCIAL_LINKS.whatsapp1}
             target="_blank"
             rel="noreferrer"
+            aria-label="Book via WhatsApp"
             className="bg-brand-accent text-brand-primary px-5 py-2.5 rounded-full text-sm font-bold hover:bg-white transition-all shadow-lg hover:shadow-brand-accent/20"
           >
             Book via WhatsApp
@@ -247,7 +258,7 @@ const Navbar = () => {
               </a>
             ))}
             <a 
-              href="https://wa.me/2347019851051"
+              href={SOCIAL_LINKS.whatsapp1}
               target="_blank"
               rel="noreferrer"
               className="bg-brand-accent text-brand-primary w-full py-4 rounded-xl font-bold mt-2 text-center"
@@ -263,14 +274,13 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden" aria-label="Hero banner">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <img 
+        <OptimizedImage 
           src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=2000" 
-          alt="Luxury Car" 
+          alt="Luxury Car - LinkSwift Ride Hero" 
           className="w-full h-full object-cover"
-          referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/90 via-brand-primary/70 to-transparent" />
       </div>
@@ -296,6 +306,7 @@ const Hero = () => {
           <div className="flex flex-wrap gap-4">
             <a 
               href="tel:08144342378"
+              aria-label="Call LinkSwift Ride at 08144342378"
               className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-4 rounded-2xl border border-white/10 hover:bg-white/20 transition-all"
             >
               <Phone className="w-6 h-6 text-brand-accent" />
@@ -306,6 +317,7 @@ const Hero = () => {
             </a>
             <a 
               href="tel:07076725564"
+              aria-label="Call LinkSwift Ride at 07076725564"
               className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-4 rounded-2xl border border-white/10 hover:bg-white/20 transition-all"
             >
               <Phone className="w-6 h-6 text-brand-accent" />
@@ -316,18 +328,20 @@ const Hero = () => {
             </a>
             <div className="flex flex-col gap-2">
               <a 
-                href="https://wa.me/2347019851051"
+                href={SOCIAL_LINKS.whatsapp1}
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Chat with LinkSwift Ride on WhatsApp"
                 className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-2xl border border-white/10 hover:bg-white/20 transition-all"
               >
                 <MessageCircle className="w-5 h-5 text-green-400" />
                 <span className="text-white font-bold text-sm">WhatsApp 1</span>
               </a>
               <a 
-                href="https://wa.me/2347076725564"
+                href={SOCIAL_LINKS.whatsapp2}
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Chat with LinkSwift Ride on WhatsApp (alternative)"
                 className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-2xl border border-white/10 hover:bg-white/20 transition-all"
               >
                 <MessageCircle className="w-5 h-5 text-green-400" />
@@ -343,10 +357,10 @@ const Hero = () => {
 
 const Services = () => {
   return (
-    <section id="services" className="py-24 bg-gray-50">
+    <section id="services" className="py-24 bg-gray-50" aria-labelledby="services-title">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl md:text-5xl mb-6">Our Premium <span className="text-brand-accent">Offerings</span></h2>
+          <h2 id="services-title" className="text-4xl md:text-5xl mb-6">Our Premium <span className="text-brand-accent">Offerings</span></h2>
           <p className="text-lg text-gray-500">We provide a comprehensive suite of luxury services designed to cater to your every need, whether you're moving, staying, or sending.</p>
         </div>
 
@@ -361,11 +375,10 @@ const Services = () => {
               className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-gray-100"
             >
               <div className="h-64 overflow-hidden relative">
-                <img 
+                <OptimizedImage 
                   src={service.image} 
                   alt={service.title} 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  referrerPolicy="no-referrer"
                 />
                 <div className="absolute top-4 left-4 bg-brand-accent p-3 rounded-2xl shadow-lg">
                   {service.icon}
@@ -390,14 +403,17 @@ const Services = () => {
 
 const OurWork = () => {
   return (
-    <section id="work" className="py-24 bg-white">
+    <section id="work" className="py-24 bg-white" aria-labelledby="work-title">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
-            <h2 className="text-4xl md:text-5xl mb-6">Our Work in <span className="text-brand-accent">Action</span></h2>
+            <h2 id="work-title" className="text-4xl md:text-5xl mb-6">Our Work in <span className="text-brand-accent">Action</span></h2>
             <p className="text-lg text-gray-500">Take a look at some of our recent successful missions and the premium experiences we've delivered to our clients.</p>
           </div>
-          <button className="bg-brand-primary text-white px-8 py-4 rounded-full font-bold hover:bg-brand-primary/90 transition-all shrink-0">
+          <button 
+            className="bg-brand-primary text-white px-8 py-4 rounded-full font-bold hover:bg-brand-primary/90 transition-all shrink-0"
+            aria-label="View full gallery of our work"
+          >
             View Full Gallery
           </button>
         </div>
@@ -411,12 +427,13 @@ const OurWork = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               className="group relative h-80 rounded-3xl overflow-hidden cursor-pointer"
+              role="link"
+              aria-label={`${item.title} - ${item.category}`}
             >
-              <img 
+              <OptimizedImage 
                 src={item.image} 
                 alt={item.title} 
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-primary via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -433,13 +450,13 @@ const OurWork = () => {
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" className="py-24 bg-brand-primary overflow-hidden relative">
+    <section id="testimonials" className="py-24 bg-brand-primary overflow-hidden relative" aria-labelledby="testimonials-title">
       <div className="absolute top-0 right-0 w-96 h-96 bg-brand-accent/5 rounded-full -mr-48 -mt-48 blur-3xl" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-accent/5 rounded-full -ml-48 -mb-48 blur-3xl" />
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl text-white mb-6">What Our <span className="text-brand-accent">Clients Say</span></h2>
+          <h2 id="testimonials-title" className="text-4xl md:text-5xl text-white mb-6">What Our <span className="text-brand-accent">Clients Say</span></h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">Don't just take our word for it. Here's what our valued clients have to say about their LinkSwift experiences.</p>
         </div>
 
@@ -452,8 +469,14 @@ const Testimonials = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
               className="bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10"
+              role="article"
+              aria-label={`Review by ${testimonial.name}`}
             >
-              <div className="flex gap-1 mb-6">
+              <div 
+                className="flex gap-1 mb-6"
+                role="img"
+                aria-label={`${testimonial.rating} out of 5 stars`}
+              >
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star key={i} className="w-5 h-5 text-brand-accent fill-brand-accent" />
                 ))}
@@ -462,11 +485,10 @@ const Testimonials = () => {
                 "{testimonial.content}"
               </p>
               <div className="flex items-center gap-4">
-                <img 
+                <OptimizedImage 
                   src={testimonial.avatar} 
                   alt={testimonial.name} 
                   className="w-12 h-12 rounded-full border-2 border-brand-accent"
-                  referrerPolicy="no-referrer"
                 />
                 <div>
                   <h4 className="text-white font-bold">{testimonial.name}</h4>
@@ -485,10 +507,10 @@ const FAQSection = () => {
   const [openId, setOpenId] = useState<string | null>('1');
 
   return (
-    <section id="faq" className="py-24 bg-gray-50">
+    <section id="faq" className="py-24 bg-gray-50" aria-labelledby="faq-title">
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl mb-6">Frequently Asked <span className="text-brand-accent">Questions</span></h2>
+          <h2 id="faq-title" className="text-4xl md:text-5xl mb-6">Frequently Asked <span className="text-brand-accent">Questions</span></h2>
           <p className="text-lg text-gray-500">Everything you need to know about our services and booking process.</p>
         </div>
 
@@ -497,10 +519,14 @@ const FAQSection = () => {
             <div 
               key={faq.id}
               className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm"
+              role="region"
+              aria-label={`FAQ: ${faq.question}`}
             >
               <button
                 onClick={() => setOpenId(openId === faq.id ? null : faq.id)}
                 className="w-full px-8 py-6 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
+                aria-expanded={openId === faq.id}
+                aria-controls={`faq-answer-${faq.id}`}
               >
                 <span className="text-lg font-bold text-brand-primary">{faq.question}</span>
                 <ChevronRight className={cn(
@@ -515,6 +541,7 @@ const FAQSection = () => {
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
+                    id={`faq-answer-${faq.id}`}
                   >
                     <div className="px-8 pb-6 text-gray-500 leading-relaxed">
                       {faq.answer}
@@ -594,13 +621,31 @@ const Footer = () => {
               Premium rides, luxurious stays, and swift delivery services for the discerning traveler. Excellence in every journey.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="bg-white/5 p-3 rounded-xl hover:bg-brand-accent hover:text-brand-primary transition-all">
+              <a 
+                href={SOCIAL_LINKS.instagram} 
+                target="_blank" 
+                rel="noreferrer"
+                aria-label="Follow LinkSwift Ride on Instagram"
+                className="bg-white/5 p-3 rounded-xl hover:bg-brand-accent hover:text-brand-primary transition-all"
+              >
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="bg-white/5 p-3 rounded-xl hover:bg-brand-accent hover:text-brand-primary transition-all">
+              <a 
+                href={SOCIAL_LINKS.twitter}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Follow LinkSwift Ride on Twitter"
+                className="bg-white/5 p-3 rounded-xl hover:bg-brand-accent hover:text-brand-primary transition-all"
+              >
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="bg-white/5 p-3 rounded-xl hover:bg-brand-accent hover:text-brand-primary transition-all">
+              <a 
+                href={SOCIAL_LINKS.facebook}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Follow LinkSwift Ride on Facebook"
+                className="bg-white/5 p-3 rounded-xl hover:bg-brand-accent hover:text-brand-primary transition-all"
+              >
                 <Facebook className="w-5 h-5" />
               </a>
             </div>
@@ -647,10 +692,15 @@ const Footer = () => {
             <form className="relative">
               <input 
                 type="email" 
-                placeholder="Your email" 
+                placeholder="Your email"
+                aria-label="Email address for newsletter"
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-brand-accent transition-all"
               />
-              <button className="absolute right-2 top-2 bg-brand-accent text-brand-primary p-1.5 rounded-lg hover:bg-white transition-all">
+              <button 
+                type="submit"
+                aria-label="Subscribe to newsletter"
+                className="absolute right-2 top-2 bg-brand-accent text-brand-primary p-1.5 rounded-lg hover:bg-white transition-all"
+              >
                 <ChevronRight className="w-5 h-5" />
               </button>
             </form>
@@ -660,8 +710,8 @@ const Footer = () => {
         <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-sm">
           <p>© 2026 LinkSwift Ride. All rights reserved.</p>
           <div className="flex gap-8">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <a href="#privacy" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#terms" className="hover:text-white transition-colors">Terms of Service</a>
           </div>
         </div>
       </div>
@@ -672,13 +722,25 @@ const Footer = () => {
 export default function App() {
   return (
     <div className="min-h-screen selection:bg-brand-accent selection:text-brand-primary">
+      {/* Skip to main content link for accessibility */}
+      <a 
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-brand-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-lg"
+      >
+        Skip to main content
+      </a>
+
       <Navbar />
-      <Hero />
-      <Services />
-      <OurWork />
-      <Testimonials />
-      <FAQSection />
-      <LastCTA />
+      
+      <main id="main-content">
+        <Hero />
+        <Services />
+        <OurWork />
+        <Testimonials />
+        <FAQSection />
+        <LastCTA />
+      </main>
+      
       <Footer />
     </div>
   );
