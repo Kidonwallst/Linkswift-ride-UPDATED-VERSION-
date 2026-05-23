@@ -12,9 +12,6 @@ import {
   CheckCircle2, 
   Menu, 
   X, 
-  Instagram, 
-  Twitter, 
-  Facebook,
   MessageCircle,
   ArrowRight
 } from 'lucide-react';
@@ -58,7 +55,7 @@ const SERVICES: Service[] = [
     title: 'Premium Rides',
     description: 'Experience unparalleled comfort and style with our fleet of luxury vehicles. Professional chauffeurs at your service.',
     icon: <Car className="w-6 h-6" />,
-    image: 'https://images.unsplash.com/photo-1606611013016-969c19ba27bb?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1563720225384-9d0f671e512c?auto=format&fit=crop&q=80&w=800',
   },
   {
     id: 'stays',
@@ -107,7 +104,7 @@ const FAQS: FAQ[] = [
   {
     id: '1',
     question: 'How do I book a premium ride?',
-    answer: 'You can book directly by calling us at 08144342378 or messaging us on WhatsApp at 07019851051. We recommend booking at least 2 hours in advance for the best experience.',
+    answer: 'You can book directly by calling us at 08144342378 or 07019851051, or messaging us on WhatsApp at either of those numbers. We recommend booking at least 2 hours in advance for the best experience.',
   },
   {
     id: '2',
@@ -305,35 +302,39 @@ const Hero = () => {
               </div>
             </a>
             <a 
-              href="tel:07076725564"
+              href="tel:07019851051"
               className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-4 rounded-2xl border border-white/10 hover:bg-white/20 transition-all"
             >
               <Phone className="w-6 h-6 text-brand-accent" />
               <div>
                 <p className="text-xs text-gray-400 uppercase font-bold">Call</p>
-                <p className="text-white font-bold">07076725564</p>
+                <p className="text-white font-bold">07019851051</p>
               </div>
             </a>
-            <div className="flex flex-col gap-2">
-              <a 
-                href="https://wa.me/2347019851051"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-2xl border border-white/10 hover:bg-white/20 transition-all"
-              >
-                <MessageCircle className="w-5 h-5 text-green-400" />
-                <span className="text-white font-bold text-sm">WhatsApp 1</span>
-              </a>
-              <a 
-                href="https://wa.me/2347076725564"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-2xl border border-white/10 hover:bg-white/20 transition-all"
-              >
-                <MessageCircle className="w-5 h-5 text-green-400" />
-                <span className="text-white font-bold text-sm">WhatsApp 2</span>
-              </a>
-            </div>
+            <a 
+              href="https://wa.me/2348144342378"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-4 rounded-2xl border border-white/10 hover:bg-white/20 transition-all"
+            >
+              <MessageCircle className="w-6 h-6 text-green-400" />
+              <div>
+                <p className="text-xs text-gray-400 uppercase font-bold">WhatsApp</p>
+                <p className="text-white font-bold">08144342378</p>
+              </div>
+            </a>
+            <a 
+              href="https://wa.me/2347019851051"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-4 rounded-2xl border border-white/10 hover:bg-white/20 transition-all"
+            >
+              <MessageCircle className="w-6 h-6 text-green-400" />
+              <div>
+                <p className="text-xs text-gray-400 uppercase font-bold">WhatsApp</p>
+                <p className="text-white font-bold">07019851051</p>
+              </div>
+            </a>
           </div>
         </motion.div>
       </div>
@@ -542,13 +543,29 @@ const LastCTA = () => {
             <h2 className="text-4xl md:text-6xl text-brand-primary mb-8">Ready to Experience <span className="underline decoration-brand-primary/20">True Luxury?</span></h2>
             <p className="text-xl text-brand-primary/70 mb-12">Join hundreds of satisfied clients who trust LinkSwift Ride for their premium needs. Book your service today.</p>
             
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 flex-wrap">
               <a 
                 href="tel:08144342378"
                 className="bg-brand-primary text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-brand-primary/90 transition-all shadow-xl w-full sm:w-auto flex items-center justify-center gap-2"
               >
                 <Phone className="w-5 h-5" />
-                Call to Book
+                Call 08144342378
+              </a>
+              <a 
+                href="tel:07019851051"
+                className="bg-brand-primary text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-brand-primary/90 transition-all shadow-xl w-full sm:w-auto flex items-center justify-center gap-2"
+              >
+                <Phone className="w-5 h-5" />
+                Call 07019851051
+              </a>
+              <a 
+                href="https://wa.me/2348144342378"
+                target="_blank"
+                rel="noreferrer"
+                className="bg-white text-brand-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-all shadow-xl w-full sm:w-auto flex items-center justify-center gap-2"
+              >
+                <MessageCircle className="w-5 h-5 text-green-600" />
+                WhatsApp 08144342378
               </a>
               <a 
                 href="https://wa.me/2347019851051"
@@ -556,17 +573,8 @@ const LastCTA = () => {
                 rel="noreferrer"
                 className="bg-white text-brand-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-all shadow-xl w-full sm:w-auto flex items-center justify-center gap-2"
               >
-                <MessageCircle className="w-5 h-5" />
-                WhatsApp 1
-              </a>
-              <a 
-                href="https://wa.me/2347076725564"
-                target="_blank"
-                rel="noreferrer"
-                className="bg-white text-brand-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-all shadow-xl w-full sm:w-auto flex items-center justify-center gap-2"
-              >
-                <MessageCircle className="w-5 h-5" />
-                WhatsApp 2
+                <MessageCircle className="w-5 h-5 text-green-600" />
+                WhatsApp 07019851051
               </a>
             </div>
           </div>
@@ -593,17 +601,6 @@ const Footer = () => {
             <p className="text-gray-400 mb-8 leading-relaxed">
               Premium rides, luxurious stays, and swift delivery services for the discerning traveler. Excellence in every journey.
             </p>
-            <div className="flex gap-4">
-              <a href="#" className="bg-white/5 p-3 rounded-xl hover:bg-brand-accent hover:text-brand-primary transition-all">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="bg-white/5 p-3 rounded-xl hover:bg-brand-accent hover:text-brand-primary transition-all">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="bg-white/5 p-3 rounded-xl hover:bg-brand-accent hover:text-brand-primary transition-all">
-                <Facebook className="w-5 h-5" />
-              </a>
-            </div>
           </div>
 
           <div>
@@ -622,9 +619,8 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <Phone className="w-5 h-5 text-brand-accent shrink-0 mt-1" />
                 <div>
-                  <a href="tel:08144342378" className="hover:text-brand-accent block transition-colors">08144342378</a>
-                  <a href="tel:07019851051" className="hover:text-brand-accent block transition-colors">07019851051</a>
-                  <a href="tel:07076725564" className="hover:text-brand-accent block transition-colors">07076725564</a>
+                  <a href="tel:08144342378" className="hover:text-brand-accent block transition-colors">08144342378 (Call & WhatsApp)</a>
+                  <a href="tel:07019851051" className="hover:text-brand-accent block transition-colors">07019851051 (Call & WhatsApp)</a>
                 </div>
               </li>
               <li className="flex items-center gap-3">
