@@ -55,7 +55,7 @@ const SERVICES: Service[] = [
     title: 'Premium Rides',
     description: 'Experience unparalleled comfort and style with our fleet of luxury vehicles. Professional chauffeurs at your service.',
     icon: <Car className="w-6 h-6" />,
-    image: 'https://images.unsplash.com/photo-1563720225384-9d0f671e512c?auto=format&fit=crop&q=80&w=800',
+    image: '/src/assets/images/toyota_prado_2025_1781562646029.jpg',
   },
   {
     id: 'stays',
