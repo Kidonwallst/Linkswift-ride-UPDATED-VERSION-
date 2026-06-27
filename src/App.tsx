@@ -51,13 +51,6 @@ interface WorkItem {
 // --- Data ---
 const SERVICES: Service[] = [
   {
-    id: 'rides',
-    title: 'Premium Rides',
-    description: 'Experience unparalleled comfort and style with our fleet of luxury vehicles. Professional chauffeurs at your service.',
-    icon: <Car className="w-6 h-6" />,
-    image: '/src/assets/images/toyota_prado_2024_1781633308843.jpg',
-  },
-  {
     id: 'stays',
     title: 'Luxurious Stays',
     description: 'Curated premium accommodations that redefine luxury. From penthouses to private villas, we ensure your comfort.',
@@ -78,7 +71,7 @@ const TESTIMONIALS: Testimonial[] = [
     id: '1',
     name: 'Sarah Johnson',
     role: 'Business Executive',
-    content: 'LinkSwift Ride has completely changed my travel experience. Their premium rides are always on time and the service is impeccable.',
+    content: 'LinkSwift has completely changed my experience. Their services are always professional, punctual, and the quality is impeccable.',
     rating: 5,
     avatar: 'https://i.pravatar.cc/150?u=sarah',
   },
@@ -103,33 +96,22 @@ const TESTIMONIALS: Testimonial[] = [
 const FAQS: FAQ[] = [
   {
     id: '1',
-    question: 'How do I book a premium ride?',
-    answer: 'You can book directly by calling us at 08144342378 or 07019851051, or messaging us on WhatsApp at either of those numbers. We recommend booking at least 2 hours in advance for the best experience.',
+    question: 'How do I book a luxurious stay or delivery service?',
+    answer: 'You can book directly by calling us at 08144342378 or 07019851051, or messaging us on WhatsApp at either of those numbers. We recommend booking in advance for the best experience.',
   },
   {
     id: '2',
-    question: 'What types of vehicles are in your fleet?',
-    answer: 'Our fleet consists of late-model luxury sedans, SUVs, and executive vans, all maintained to the highest standards of cleanliness and safety.',
-  },
-  {
-    id: '3',
     question: 'Are your delivery services insured?',
     answer: 'Yes, all our swift delivery services include basic insurance coverage for your items. For high-value goods, we offer additional protection options.',
   },
   {
-    id: '4',
+    id: '3',
     question: 'What are your operating hours?',
-    answer: 'We are open Monday to Friday, from 8:00 AM to 7:00 PM. However, pre-booked premium rides and stays can be serviced 24/7.',
+    answer: 'We are open Monday to Friday, from 8:00 AM to 7:00 PM. However, pre-booked stays and delivery arrangements can be serviced 24/7 as needed.',
   },
 ];
 
 const OUR_WORK: WorkItem[] = [
-  {
-    id: '1',
-    title: 'Executive Airport Transfer',
-    category: 'Premium Rides',
-    image: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&q=80&w=800',
-  },
   {
     id: '2',
     title: 'Luxury Penthouse Suite',
@@ -141,12 +123,6 @@ const OUR_WORK: WorkItem[] = [
     title: 'Express Corporate Delivery',
     category: 'Swift Delivery',
     image: 'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?auto=format&fit=crop&q=80&w=800',
-  },
-  {
-    id: '4',
-    title: 'Wedding Chauffeur Service',
-    category: 'Premium Rides',
-    image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=800',
   },
 ];
 
@@ -284,10 +260,10 @@ const Hero = () => {
             <span className="text-brand-accent text-sm font-bold uppercase tracking-wider">Premium Service Provider</span>
           </div>
           <h1 className="text-5xl md:text-7xl text-white mb-6 leading-[1.1]">
-            Elevating Your <span className="text-brand-accent">Journey</span> & <span className="text-brand-accent">Stay</span>
+            Elevating Your <span className="text-brand-accent">Stay</span> & <span className="text-brand-accent">Comfort</span>
           </h1>
           <p className="text-xl text-gray-300 mb-8 max-w-lg leading-relaxed">
-            LinkSwift Ride offers premium chauffeur services, luxurious accommodations, and lightning-fast delivery across the city.
+            LinkSwift Ride offers luxurious accommodations and lightning-fast delivery across the city.
           </p>
           
           <div className="flex flex-wrap gap-4">
@@ -351,7 +327,7 @@ const Services = () => {
           <p className="text-lg text-gray-500">We provide a comprehensive suite of luxury services designed to cater to your every need, whether you're moving, staying, or sending.</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {SERVICES.map((service, index) => (
             <motion.div
               key={service.id}
@@ -403,7 +379,7 @@ const OurWork = () => {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {OUR_WORK.map((item, index) => (
             <motion.div
               key={item.id}
@@ -599,7 +575,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-gray-400 mb-8 leading-relaxed">
-              Premium rides, luxurious stays, and swift delivery services for the discerning traveler. Excellence in every journey.
+              Luxurious stays and swift delivery services for the discerning traveler. Excellence in every journey.
             </p>
           </div>
 
@@ -665,6 +641,41 @@ const Footer = () => {
   );
 };
 
+// --- Ad Unit Component ---
+const AdUnit = () => {
+  useEffect(() => {
+    const initAd = () => {
+      try {
+        // Find if there are any adsbygoogle elements that haven't been initialized yet
+        const uninitializedAds = document.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status])');
+        if (uninitializedAds.length > 0) {
+          ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
+        }
+      } catch (e) {
+        console.error('AdSense error:', e);
+      }
+    };
+
+    // A small timeout ensures the DOM has fully rendered the tags
+    const timer = setTimeout(initAd, 200);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center overflow-hidden">
+      <div className="inline-block w-full max-w-4xl bg-gray-50/50 rounded-2xl p-4 border border-gray-100">
+        <span className="text-[10px] uppercase tracking-wider text-gray-400 block mb-3 font-semibold">Advertisement</span>
+        <ins className="adsbygoogle"
+             style={{ display: 'block' }}
+             data-ad-client="ca-pub-1663948114422604"
+             data-ad-slot="1956908050"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+      </div>
+    </div>
+  );
+};
+
 export default function App() {
   return (
     <div className="min-h-screen selection:bg-brand-accent selection:text-brand-primary">
@@ -672,8 +683,10 @@ export default function App() {
       <Hero />
       <Services />
       <OurWork />
+      <AdUnit />
       <Testimonials />
       <FAQSection />
+      <AdUnit />
       <LastCTA />
       <Footer />
     </div>
